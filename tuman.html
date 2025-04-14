@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Расследование: Агент Туманова</title>
+  <style>
+    body {
+      background-image: url('background.png');
+      background-size: cover;
+      color: #fff;
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      text-align: center;
+    }
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+    }
+    .description {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin-bottom: 20px;
+    }
+    .input-container {
+      margin-top: 20px;
+    }
+    input {
+      padding: 10px;
+      font-size: 1rem;
+      background-color: #444;
+      color: #fff;
+      border: 2px solid #888;
+      border-radius: 5px;
+      width: 250px;
+      text-align: center;
+    }
+    .input-container button {
+      padding: 10px 20px;
+      font-size: 1rem;
+      margin-left: 10px;
+      background-color: #444;
+      color: #fff;
+      border: 2px solid #888;
+      border-radius: 5px;
+    }
+    .next-location {
+      display: none;
+      margin-top: 30px;
+    }
+    .next-location img {
+      max-width: 80%;
+      border-radius: 10px;
+    }
+    .hint {
+      margin-top: 20px;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Расследование: Агент Туманова</h1>
+    <p class="description">Вы обнаружили шифр, который нужно расшифровать, чтобы продолжить расследование. Введите фамилию агента для того, чтобы двигаться дальше.</p>
+    
+    <div class="input-container">
+      <input type="text" id="agent-name" placeholder="Введите фамилию агента" />
+      <button onclick="checkAnswer()">Подтвердить</button>
+    </div>
+
+    <div class="next-location">
+      <h2>Следующая локация</h2>
+      <img src="next-location.jpg" alt="Следующая локация" />
+    </div>
+
+    <p class="hint">Подсказка: Это агент с ключевым ролью в нашем расследовании, чья фамилия начинается на "Т".</p>
+  </div>
+
+  <script>
+    function checkAnswer() {
+      const input = document.getElementById('agent-name').value.trim().toLowerCase();
+      const correctAnswer = 'туманова'; // Correct name in lowercase
+
+      if (input === correctAnswer) {
+        document.querySelector('.next-location').style.display = 'block';
+      } else {
+        alert('Неверная фамилия! Попробуйте снова.');
+      }
+    }
+  </script>
+</body>
+</html>
